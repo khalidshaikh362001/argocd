@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata: 
   name: test
-  namespace: test  # Changed from 'test' to 'argocd'
+  namespace: argocd  # Changed from 'test' to 'argocd'
 spec:
   project: default
   source:
     repoURL: https://github.com/khalidshaikh362001/argocd.git
     targetRevision: main
-    path: /
+    path: manifest
   destination:
     server: https://3E6DE5615AD3CED0FC577D656DC61B87.gr7.us-east-1.eks.amazonaws.com
-    namespace: default
+    namespace: test
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
