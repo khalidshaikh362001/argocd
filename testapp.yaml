@@ -13,6 +13,8 @@ spec:
     server: https://3E6DE5615AD3CED0FC577D656DC61B87.gr7.us-east-1.eks.amazonaws.com
     namespace: default
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
