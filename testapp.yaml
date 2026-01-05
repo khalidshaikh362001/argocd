@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: test
+  namespace: test
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/khalidshaikh362001/argocd.git
+    targetRevision: main
+    path: /
+  destination:
+    server: https://3E6DE5615AD3CED0FC577D656DC61B87.gr7.us-east-1.eks.amazonaws.com
+    namespace: default
+  syncpolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      
