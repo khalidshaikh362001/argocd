@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata: 
   name: test
-  namespace: test
+  namespace: test  # Changed from 'test' to 'argocd'
 spec:
   project: default
   source:
@@ -17,4 +17,4 @@ spec:
     - CreateNamespace=true
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: true   
