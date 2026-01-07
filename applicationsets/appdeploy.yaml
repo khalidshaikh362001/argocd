@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1apha1
+kind: ApplicationSet
+metadata:
+  name: appdeploy
+  namespace: default
+spec:
+  generators:
+    - list:
+        elements:
+        - app: frontend
+          path: Kubernetes-Manifests-file/Frontend
+        - app: backend
+          path: Kubernetes-Manifests-file/Backend
+        - app: database
+          path: Kubernetes-Manifests-file/Database
+        
+  template:
+    metadata:
+      name: '{{kozen}}-list'
+    spec:
+      project: default
+      source: 
+        repoURL: https://github.com/khalidshaikh362001/Helm-chart.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy: 
+        automated:
+          prune: true
+          selfHeal: true
