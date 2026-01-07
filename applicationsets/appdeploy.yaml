@@ -16,7 +16,7 @@ spec:
         
   template:
     metadata:
-      name: '{{kozen}}-list'
+      name: '{{app}}-list'
     spec:
       project: default
       source: 
