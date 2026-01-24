@@ -7,7 +7,7 @@ spec:
   generators:
     - list:
         elements:
-        - app: 2048
+        - app: '2048'
           path: "."       
   template:
     metadata:
