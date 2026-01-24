@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: 2048
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+        - app: 2048
+          path: "."       
+  template:
+    metadata:
+      name: '{{app}}-list'
+    spec:
+      project: default
+      source: 
+        repoURL: https://github.com/khalidshaikh362001/2048.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy: 
+        automated:
+          prune: true
+          selfHeal: true
