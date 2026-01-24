@@ -7,8 +7,8 @@ spec:
   generators:
     - list:
         elements:
-        - app: 'app-2048'
-          path: 'manifest'      
+        - app: app-2048
+          path: manifest     
   template:
     metadata:
       name: '{{app}}-list'
