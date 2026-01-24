@@ -15,7 +15,7 @@ spec:
     spec:
       project: default
       source: 
-        repoURL: 
+        repoURL: https://github.com/khalidshaikh362001/2048.git
         targetRevision: main
         path: '{{path}}'
       destination:
